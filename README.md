@@ -16,3 +16,12 @@ Update Stripe secret key in `server.go` file and execute the following commands 
 - `go install`
 - `go mod vendor`
 - `go run server.go` 
+
+## Available Endpoints
+- **POST**: `api/customer` - Create a new customer. Params:
+  - `email`: Email of the customer
+  - `stripeCreditCardToken`: Default card token to be used for this customer
+- **POST**: `api/payments` - Create a payment_intent for a customer. Params:
+  - `stripeCustomerID`: Customer ID in stripe
+  - `amount`: Amount in USD
+- **GET**: `api/payments/:stripe_customer_id` - Get all payments made by a customer.
